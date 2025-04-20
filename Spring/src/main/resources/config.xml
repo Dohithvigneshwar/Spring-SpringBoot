@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--    setter injection -->
+
+<!--    <bean id = "student1" class = "org.example.Student" autowire="byType">-->
+<!--          <property name = "age" value = "18"/>-->
+<!--          <property name="rollNo" value = "1"/>-->
+<!--          <property name="stationery" ref="pen"/>-->
+<!--    </bean>-->
+<!--    <bean id="stationery" class = "org.example.Pen">-->
+<!--    </bean>-->
+
+<!--    <bean id = "student2" class = "org.example.Student">-->
+<!--    </bean>-->
+<!--    <bean class="org.example.Faculty">-->
+<!--    </bean>-->
+
+<!--    Constructor injection -->
+
+    <bean id = "student" class = "org.example.Student" autowire="constructor">
+        <constructor-arg index = "0" value="18" />
+        <constructor-arg index = "1" value="8" />
+<!--        <constructor-arg index = "2" ref="pencil" />-->
+    </bean>
+        <bean id="pencil" class="org.example.Pencil" primary="true">
+        </bean>
+        <bean id = "pen" class="org.example.Pen" >
+        </bean>
+        <bean id = "sketch" class = "org.example.Sketch">
+    </bean>
+</beans>
