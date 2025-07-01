@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+   <form onsubmit="register(event)">
+  <p>Register User</p>
+  <input type="text" id="name" placeholder="Name" />
+  <input type="number" id="age" placeholder="Age" />
+  <input type="submit" value="Register" />
+</form>
+<script>
+  function register(e) {
+    e.preventDefault(); // Prevent page reload
+
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value;
+
+    if (!name || !age) {
+      alert("Please enter both name and age");
+      return;
+    }
+    fetch("http://localhost:8080/addusers",{
+        method:"POST",
+        headers:{
+            "Content-Type" : "application/json"
+        },
+        body:JSON.stringify({
+            name:name,
+            age:parseInt(age)
+        })
+    })
+    .then((response) => response.text())
+    .then(data => alert(data))
+    .catch((err) => alert("Something went wrong"))
+  }
+</script>
+
+</body>
+</html>

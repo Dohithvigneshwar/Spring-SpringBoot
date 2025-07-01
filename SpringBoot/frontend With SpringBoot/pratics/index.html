@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="submitFun(event)">
+        <label for="name">UserName : </label>
+        <input type="text" id = "name"/><br/>
+        <label for="city">City : </label>
+        <input type="text" id = "city"/><br/>
+        <label>Gender : </label> 
+        <input type="radio" name="gender" id="male" value="male"/><label for="male">Male</label> 
+        <input type="radio" name="gender" id="female" value="female"/><label for="female">Female</label> <br/>
+        <label>Skills</label><br/>
+        <input type="checkbox" id="java"/>
+        <label for="java">Java</label><br/>
+        <input type="checkbox" id="python"/>
+        <label for="python">Python</label><br/>
+        <input type="checkbox" id="CC++"/>
+        <label for="CC++">C/C++</label><br/>
+        <label for="course">Course : </label>
+        <select id="course">
+            <option value="dsa">Data Stucture and Algorithms</option>
+            <option value="springboot">Spring and SpringBoot</option>
+            <option value="ml">Machine Learning</option>
+            <option value="web">Web Development</option>
+        </select><br/>
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Clear"/>
+    </form>
+    <script>
+        function submitFun(e){
+            e.preventDefault();
+            // const name = document.getElementById("name").value;
+            // const city = document.getElementById("city").value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || "null";
+            const course = document.getElementById("course").value;
+            
+            alert(course);
+        }
+    </script>
+</body>
+</html>

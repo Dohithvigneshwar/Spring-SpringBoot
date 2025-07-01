@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div>Fetch Data</div>
+    <div><a href="register.html">register User</a></div>
+    <button onclick="fetchData()">Get All Users</button>
+    <button onclick="fetchById()">Fetch By Id</button>
+    <div id="response"></div>
+    <script>
+        function fetchData(){
+            let res = document.getElementById("response");
+
+            fetch("http://localhost:8080/getusers")
+            .then((response) => response.json())
+            .then((data) =>{
+                
+            });
+        }  
+        function fetchById(){
+            const id = Number(prompt("Enter Id : "));
+            
+            fetch(`http://localhost:8080/getbyid/${id}`)
+            .then((r) => r.json())
+            .then((data) => console.log(data))
+
+        }
+    </script>
+</body>
+</html>
